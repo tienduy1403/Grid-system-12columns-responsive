@@ -1,15 +1,12 @@
 /* X-Small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
+.container-fluid,
 .container {
     --column-quantity: 12;
     --gutters: 10px;
 
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-}
-
-.container-fluid {
     width: 100%;
 }
 
@@ -26,12 +23,24 @@ No media query for `xs` since this is the default in Bootstrap */
     padding-right: calc(var(--gutters) / 2);
 }
 
-/* Col-* */
+.container-fluid,
+.container,
+.col,
+.row[class*="row-col-"] > *,
 .row > [class*="col-"] {
-    flex: 0 0 auto;
-    width: calc(100% / var(--column-quantity) * var(--column-number));
     padding-left: calc(var(--gutters) / 2);
     padding-right: calc(var(--gutters) / 2);
+}
+
+.row > [class*="offset-"],
+.row[class*="row-col-"] > *,
+.row > [class*="col-"] {
+    flex: 0 0 auto;
+}
+
+/* Col-* */
+.row > [class*="col-"] {
+    width: calc(100% / var(--column-quantity) * var(--column-number));
 }
 
 .col-1 {
@@ -84,10 +93,7 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* row-col-* */
 .row[class*="row-col-"] > * {
-    flex: 0 0 auto;
     width: calc(100% / var(--row-column-number));
-    padding-left: calc(var(--gutters) / 2);
-    padding-right: calc(var(--gutters) / 2);
 }
 
 .row-col-1 {
@@ -116,7 +122,6 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* offset-* */
 .row > [class*="offset-"] {
-    flex: 0 0 auto;
     margin-left: calc(100% / var(--column-quantity) * var(--offset-number));
 }
 

@@ -1,0 +1,16 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+.container {
+}
+
+.item {
+    padding: 20px;
+    height: 30px;
+    border: 1px solid #fa4242;
+    text-align: center;
+    line-height: 0;
+}

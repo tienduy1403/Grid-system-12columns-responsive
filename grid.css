@@ -1,46 +1,126 @@
-/* X-Small devices (portrait phones, less than 576px)
-No media query for `xs` since this is the default in Bootstrap */
-.container-fluid,
-.container {
-    --column-quantity: 12;
-    --gutters: 10px;
+/* X-Small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+.container,
+.container-fluid {
+    --column-size: 12;
+    --spacer: 10px;
 
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    padding-left: calc(var(--spacer) / 2);
+    padding-right: calc(var(--spacer) / 2);
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: calc(-1 * var(--gutters) / 2);
-    margin-right: calc(-1 * var(--gutters) / 2);
+    margin-left: calc(-1 * var(--spacer) / 2);
+    margin-right: calc(-1 * var(--spacer) / 2);
 }
 
 .col {
     flex: 1 0;
-    padding-left: calc(var(--gutters) / 2);
-    padding-right: calc(var(--gutters) / 2);
 }
 
-.container-fluid,
-.container,
+.g-0 {
+    --spacer: 0;
+}
+
+.row > [class*="offset-"] {
+    margin-left: calc(100% / var(--column-size) * var(--offset-number));
+}
+
+.offset-0 {
+    --offset-number: 0;
+}
+
+.offset-1 {
+    --offset-number: 1;
+}
+
+.offset-2 {
+    --offset-number: 2;
+}
+
+.offset-3 {
+    --offset-number: 3;
+}
+
+.offset-4 {
+    --offset-number: 4;
+}
+
+.offset-5 {
+    --offset-number: 5;
+}
+
+.offset-6 {
+    --offset-number: 6;
+}
+
+.offset-7 {
+    --offset-number: 7;
+}
+
+.offset-8 {
+    --offset-number: 8;
+}
+
+.offset-9 {
+    --offset-number: 9;
+}
+
+.offset-10 {
+    --offset-number: 10;
+}
+
+.offset-11 {
+    --offset-number: 11;
+}
+
 .col,
-.row[class*="row-col-"] > *,
+.row[class*="row-cols-"] > *,
 .row > [class*="col-"] {
-    padding-left: calc(var(--gutters) / 2);
-    padding-right: calc(var(--gutters) / 2);
+    padding-left: calc(var(--spacer) / 2);
+    padding-right: calc(var(--spacer) / 2);
 }
 
-.row > [class*="offset-"],
-.row[class*="row-col-"] > *,
+.row[class*="row-cols-"] > *,
 .row > [class*="col-"] {
     flex: 0 0 auto;
 }
 
-/* Col-* */
+.row[class*="row-cols-"] > * {
+    width: calc(100% / var(--row-cols-number));
+}
+
+.row-cols-1 > * {
+    --row-cols-number: 1;
+}
+
+.row-cols-2 > * {
+    --row-cols-number: 2;
+}
+
+.row-cols-3 > * {
+    --row-cols-number: 3;
+}
+
+.row-cols-4 > * {
+    --row-cols-number: 4;
+}
+
+.row-cols-5 > * {
+    --row-cols-number: 5;
+}
+
+.row-cols-6 > * {
+    --row-cols-number: 6;
+}
+
 .row > [class*="col-"] {
-    width: calc(100% / var(--column-quantity) * var(--column-number));
+    width: calc(100% / var(--column-size) * var(--column-number));
 }
 
 .col-1 {
@@ -91,88 +171,64 @@ No media query for `xs` since this is the default in Bootstrap */
     --column-number: 12;
 }
 
-/* row-col-* */
-.row[class*="row-col-"] > * {
-    width: calc(100% / var(--row-column-number));
-}
-
-.row-col-1 {
-    --row-column-number: 1;
-}
-
-.row-col-2 {
-    --row-column-number: 2;
-}
-
-.row-col-3 {
-    --row-column-number: 3;
-}
-
-.row-col-4 {
-    --row-column-number: 4;
-}
-
-.row-col-5 {
-    --row-column-number: 5;
-}
-
-.row-col-6 {
-    --row-column-number: 6;
-}
-
-/* offset-* */
-.row > [class*="offset-"] {
-    margin-left: calc(100% / var(--column-quantity) * var(--offset-number));
-}
-
-.offset-1 {
-    --offset-number: 1;
-}
-
-.offset-2 {
-    --offset-number: 2;
-}
-
-.offset-3 {
-    --offset-number: 3;
-}
-
-.offset-4 {
-    --offset-number: 4;
-}
-
-.offset-5 {
-    --offset-number: 5;
-}
-
-.offset-6 {
-    --offset-number: 6;
-}
-
-.offset-7 {
-    --offset-number: 7;
-}
-
-.offset-8 {
-    --offset-number: 8;
-}
-
-.offset-9 {
-    --offset-number: 9;
-}
-
-.offset-10 {
-    --offset-number: 10;
-}
-
-.offset-11 {
-    --offset-number: 11;
-}
-
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .container {
+        --spacer: 24px;
+
         max-width: 540px;
+    }
+
+    .g-sm-0 {
+        --spacer: 0;
+    }
+
+    .offset-sm-0 {
+        --offset-number: 0;
+    }
+
+    .offset-sm-1 {
+        --offset-number: 1;
+    }
+
+    .offset-sm-2 {
+        --offset-number: 2;
+    }
+
+    .offset-sm-3 {
+        --offset-number: 3;
+    }
+
+    .offset-sm-4 {
+        --offset-number: 4;
+    }
+
+    .offset-sm-5 {
+        --offset-number: 5;
+    }
+
+    .offset-sm-6 {
+        --offset-number: 6;
+    }
+
+    .offset-sm-7 {
+        --offset-number: 7;
+    }
+
+    .offset-sm-8 {
+        --offset-number: 8;
+    }
+
+    .offset-sm-9 {
+        --offset-number: 9;
+    }
+
+    .offset-sm-10 {
+        --offset-number: 10;
+    }
+
+    .offset-sm-11 {
+        --offset-number: 11;
     }
 
     .col-sm-1 {
@@ -223,81 +279,87 @@ No media query for `xs` since this is the default in Bootstrap */
         --column-number: 12;
     }
 
-    .row-col-sm-1 {
-        --row-column-number: 1;
+    .row-cols-sm-1 > * {
+        --row-cols-number: 1;
     }
 
-    .row-col-sm-2 {
-        --row-column-number: 2;
+    .row-cols-sm-2 > * {
+        --row-cols-number: 2;
     }
 
-    .row-col-sm-3 {
-        --row-column-number: 3;
+    .row-cols-sm-3 > * {
+        --row-cols-number: 3;
     }
 
-    .row-col-sm-4 {
-        --row-column-number: 4;
+    .row-cols-sm-4 > * {
+        --row-cols-number: 4;
     }
 
-    .row-col-sm-5 {
-        --row-column-number: 5;
+    .row-cols-sm-5 > * {
+        --row-cols-number: 5;
     }
 
-    .row-col-sm-6 {
-        --row-column-number: 6;
-    }
-
-    .offset-sm-1 {
-        --offset-number: 1;
-    }
-
-    .offset-sm-2 {
-        --offset-number: 2;
-    }
-
-    .offset-sm-3 {
-        --offset-number: 3;
-    }
-
-    .offset-sm-4 {
-        --offset-number: 4;
-    }
-
-    .offset-sm-5 {
-        --offset-number: 5;
-    }
-
-    .offset-sm-6 {
-        --offset-number: 6;
-    }
-
-    .offset-sm-7 {
-        --offset-number: 7;
-    }
-
-    .offset-sm-8 {
-        --offset-number: 8;
-    }
-
-    .offset-sm-9 {
-        --offset-number: 9;
-    }
-
-    .offset-sm-10 {
-        --offset-number: 10;
-    }
-
-    .offset-sm-11 {
-        --offset-number: 11;
+    .row-cols-sm-6 > * {
+        --row-cols-number: 6;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .container {
-        --gutters: 10px;
-
         max-width: 720px;
+    }
+
+    .g-md-0 {
+        --spacer: 0;
+    }
+
+    .offset-md-0 {
+        --offset-number: 0;
+    }
+
+    .offset-md-1 {
+        --offset-number: 1;
+    }
+
+    .offset-md-2 {
+        --offset-number: 2;
+    }
+
+    .offset-md-3 {
+        --offset-number: 3;
+    }
+
+    .offset-md-4 {
+        --offset-number: 4;
+    }
+
+    .offset-md-5 {
+        --offset-number: 5;
+    }
+
+    .offset-md-6 {
+        --offset-number: 6;
+    }
+
+    .offset-md-7 {
+        --offset-number: 7;
+    }
+
+    .offset-md-8 {
+        --offset-number: 8;
+    }
+
+    .offset-md-9 {
+        --offset-number: 9;
+    }
+
+    .offset-md-10 {
+        --offset-number: 10;
+    }
+
+    .offset-md-11 {
+        --offset-number: 11;
     }
 
     .col-md-1 {
@@ -348,81 +410,89 @@ No media query for `xs` since this is the default in Bootstrap */
         --column-number: 12;
     }
 
-    .row-col-md-1 {
-        --row-column-number: 1;
+    .row-cols-md-1 > * {
+        --row-cols-number: 1;
     }
 
-    .row-col-md-2 {
-        --row-column-number: 2;
+    .row-cols-md-2 > * {
+        --row-cols-number: 2;
     }
 
-    .row-col-md-3 {
-        --row-column-number: 3;
+    .row-cols-md-3 > * {
+        --row-cols-number: 3;
     }
 
-    .row-col-md-4 {
-        --row-column-number: 4;
+    .row-cols-md-4 > * {
+        --row-cols-number: 4;
     }
 
-    .row-col-md-5 {
-        --row-column-number: 5;
+    .row-cols-md-5 > * {
+        --row-cols-number: 5;
     }
 
-    .row-col-md-6 {
-        --row-column-number: 6;
-    }
-
-    .offset-md-1 {
-        --offset-number: 1;
-    }
-
-    .offset-md-2 {
-        --offset-number: 2;
-    }
-
-    .offset-md-3 {
-        --offset-number: 3;
-    }
-
-    .offset-md-4 {
-        --offset-number: 4;
-    }
-
-    .offset-md-5 {
-        --offset-number: 5;
-    }
-
-    .offset-md-6 {
-        --offset-number: 6;
-    }
-
-    .offset-md-7 {
-        --offset-number: 7;
-    }
-
-    .offset-md-8 {
-        --offset-number: 8;
-    }
-
-    .offset-md-9 {
-        --offset-number: 9;
-    }
-
-    .offset-md-10 {
-        --offset-number: 10;
-    }
-
-    .offset-md-11 {
-        --offset-number: 11;
+    .row-cols-md-6 > * {
+        --row-cols-number: 6;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .container {
-        --gutters: 30px;
+        --spacer: 30px;
 
         max-width: 960px;
+    }
+
+    .g-lg-0 {
+        --spacer: 0;
+    }
+
+    .offset-lg-0 {
+        --offset-number: 0;
+    }
+
+    .offset-lg-1 {
+        --offset-number: 1;
+    }
+
+    .offset-lg-2 {
+        --offset-number: 2;
+    }
+
+    .offset-lg-3 {
+        --offset-number: 3;
+    }
+
+    .offset-lg-4 {
+        --offset-number: 4;
+    }
+
+    .offset-lg-5 {
+        --offset-number: 5;
+    }
+
+    .offset-lg-6 {
+        --offset-number: 6;
+    }
+
+    .offset-lg-7 {
+        --offset-number: 7;
+    }
+
+    .offset-lg-8 {
+        --offset-number: 8;
+    }
+
+    .offset-lg-9 {
+        --offset-number: 9;
+    }
+
+    .offset-lg-10 {
+        --offset-number: 10;
+    }
+
+    .offset-lg-11 {
+        --offset-number: 11;
     }
 
     .col-lg-1 {
@@ -473,79 +543,87 @@ No media query for `xs` since this is the default in Bootstrap */
         --column-number: 12;
     }
 
-    .row-col-lg-1 {
-        --row-column-number: 1;
+    .row-cols-lg-1 > * {
+        --row-cols-number: 1;
     }
 
-    .row-col-lg-2 {
-        --row-column-number: 2;
+    .row-cols-lg-2 > * {
+        --row-cols-number: 2;
     }
 
-    .row-col-lg-3 {
-        --row-column-number: 3;
+    .row-cols-lg-3 > * {
+        --row-cols-number: 3;
     }
 
-    .row-col-lg-4 {
-        --row-column-number: 4;
+    .row-cols-lg-4 > * {
+        --row-cols-number: 4;
     }
 
-    .row-col-lg-5 {
-        --row-column-number: 5;
+    .row-cols-lg-5 > * {
+        --row-cols-number: 5;
     }
 
-    .row-col-lg-6 {
-        --row-column-number: 6;
-    }
-
-    .offset-lg-1 {
-        --offset-number: 1;
-    }
-
-    .offset-lg-2 {
-        --offset-number: 2;
-    }
-
-    .offset-lg-3 {
-        --offset-number: 3;
-    }
-
-    .offset-lg-4 {
-        --offset-number: 4;
-    }
-
-    .offset-lg-5 {
-        --offset-number: 5;
-    }
-
-    .offset-lg-6 {
-        --offset-number: 6;
-    }
-
-    .offset-lg-7 {
-        --offset-number: 7;
-    }
-
-    .offset-lg-8 {
-        --offset-number: 8;
-    }
-
-    .offset-lg-9 {
-        --offset-number: 9;
-    }
-
-    .offset-lg-10 {
-        --offset-number: 10;
-    }
-
-    .offset-lg-11 {
-        --offset-number: 11;
+    .row-cols-lg-6 > * {
+        --row-cols-number: 6;
     }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .container {
-        max-width: 1140px;
+        max-width: 1170px;
+    }
+
+    .g-xl-0 {
+        --spacer: 0;
+    }
+
+    .offset-xl-0 {
+        --offset-number: 0;
+    }
+
+    .offset-xl-1 {
+        --offset-number: 1;
+    }
+
+    .offset-xl-2 {
+        --offset-number: 2;
+    }
+
+    .offset-xl-3 {
+        --offset-number: 3;
+    }
+
+    .offset-xl-4 {
+        --offset-number: 4;
+    }
+
+    .offset-xl-5 {
+        --offset-number: 5;
+    }
+
+    .offset-xl-6 {
+        --offset-number: 6;
+    }
+
+    .offset-xl-7 {
+        --offset-number: 7;
+    }
+
+    .offset-xl-8 {
+        --offset-number: 8;
+    }
+
+    .offset-xl-9 {
+        --offset-number: 9;
+    }
+
+    .offset-xl-10 {
+        --offset-number: 10;
+    }
+
+    .offset-xl-11 {
+        --offset-number: 11;
     }
 
     .col-xl-1 {
@@ -596,72 +674,28 @@ No media query for `xs` since this is the default in Bootstrap */
         --column-number: 12;
     }
 
-    .row-col-xl-1 {
-        --row-column-number: 1;
+    .row-cols-xl-1 > * {
+        --row-cols-number: 1;
     }
 
-    .row-col-xl-2 {
-        --row-column-number: 2;
+    .row-cols-xl-2 > * {
+        --row-cols-number: 2;
     }
 
-    .row-col-xl-3 {
-        --row-column-number: 3;
+    .row-cols-xl-3 > * {
+        --row-cols-number: 3;
     }
 
-    .row-col-xl-4 {
-        --row-column-number: 4;
+    .row-cols-xl-4 > * {
+        --row-cols-number: 4;
     }
 
-    .row-col-xl-5 {
-        --row-column-number: 5;
+    .row-cols-xl-5 > * {
+        --row-cols-number: 5;
     }
 
-    .row-col-xl-6 {
-        --row-column-number: 6;
-    }
-
-    .offset-xl-1 {
-        --offset-number: 1;
-    }
-
-    .offset-xl-2 {
-        --offset-number: 2;
-    }
-
-    .offset-xl-3 {
-        --offset-number: 3;
-    }
-
-    .offset-xl-4 {
-        --offset-number: 4;
-    }
-
-    .offset-xl-5 {
-        --offset-number: 5;
-    }
-
-    .offset-xl-6 {
-        --offset-number: 6;
-    }
-
-    .offset-xl-7 {
-        --offset-number: 7;
-    }
-
-    .offset-xl-8 {
-        --offset-number: 8;
-    }
-
-    .offset-xl-9 {
-        --offset-number: 9;
-    }
-
-    .offset-xl-10 {
-        --offset-number: 10;
-    }
-
-    .offset-xl-11 {
-        --offset-number: 11;
+    .row-cols-xl-6 > * {
+        --row-cols-number: 6;
     }
 }
 
@@ -669,6 +703,58 @@ No media query for `xs` since this is the default in Bootstrap */
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
+    }
+
+    .g-xxl-0 {
+        --spacer: 0;
+    }
+
+    .offset-xxl-0 {
+        --offset-number: 0;
+    }
+
+    .offset-xxl-1 {
+        --offset-number: 1;
+    }
+
+    .offset-xxl-2 {
+        --offset-number: 2;
+    }
+
+    .offset-xxl-3 {
+        --offset-number: 3;
+    }
+
+    .offset-xxl-4 {
+        --offset-number: 4;
+    }
+
+    .offset-xxl-5 {
+        --offset-number: 5;
+    }
+
+    .offset-xxl-6 {
+        --offset-number: 6;
+    }
+
+    .offset-xxl-7 {
+        --offset-number: 7;
+    }
+
+    .offset-xxl-8 {
+        --offset-number: 8;
+    }
+
+    .offset-xxl-9 {
+        --offset-number: 9;
+    }
+
+    .offset-xxl-10 {
+        --offset-number: 10;
+    }
+
+    .offset-xxl-11 {
+        --offset-number: 11;
     }
 
     .col-xxl-1 {
@@ -719,71 +805,27 @@ No media query for `xs` since this is the default in Bootstrap */
         --column-number: 12;
     }
 
-    .row-col-xxl-1 {
-        --row-column-number: 1;
+    .row-cols-xxl-1 > * {
+        --row-cols-number: 1;
     }
 
-    .row-col-xxl-2 {
-        --row-column-number: 2;
+    .row-cols-xxl-2 > * {
+        --row-cols-number: 2;
     }
 
-    .row-col-xxl-3 {
-        --row-column-number: 3;
+    .row-cols-xxl-3 > * {
+        --row-cols-number: 3;
     }
 
-    .row-col-xxl-4 {
-        --row-column-number: 4;
+    .row-cols-xxl-4 > * {
+        --row-cols-number: 4;
     }
 
-    .row-col-xxl-5 {
-        --row-column-number: 5;
+    .row-cols-xxl-5 > * {
+        --row-cols-number: 5;
     }
 
-    .row-col-xxl-6 {
-        --row-column-number: 6;
-    }
-
-    .offset-xxl-1 {
-        --offset-number: 1;
-    }
-
-    .offset-xxl-2 {
-        --offset-number: 2;
-    }
-
-    .offset-xxl-3 {
-        --offset-number: 3;
-    }
-
-    .offset-xxl-4 {
-        --offset-number: 4;
-    }
-
-    .offset-xxl-5 {
-        --offset-number: 5;
-    }
-
-    .offset-xxl-6 {
-        --offset-number: 6;
-    }
-
-    .offset-xxl-7 {
-        --offset-number: 7;
-    }
-
-    .offset-xxl-8 {
-        --offset-number: 8;
-    }
-
-    .offset-xxl-9 {
-        --offset-number: 9;
-    }
-
-    .offset-xxl-10 {
-        --offset-number: 10;
-    }
-
-    .offset-xxl-11 {
-        --offset-number: 11;
+    .row-cols-xxl-6 > * {
+        --row-cols-number: 6;
     }
 }
